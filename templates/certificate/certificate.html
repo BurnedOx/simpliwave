@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Certificate</title>
+    <style type="text/css">
+        body {
+            size: A4;
+            background-image: url('certificate.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: white;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+        section {
+            float: right;
+            margin: 20px;
+        }
+        .details {
+            position: absolute;
+            top: 200px;
+            left: 40%;
+            width: 50%;
+        }
+        .text {
+            color: #0b9b81;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-style: italic;
+            font-size: inherit;
+        }
+        .sign {
+            display: flex;
+        }
+        .divider {
+            height: 2px;
+            width: 20vw;
+            background-color: #31ab74;
+        }
+    </style>
+</head>
+<body>
+<section>
+    {{ certificate_id }}
+</section>
+<div class="details">
+    <p style="font-family: 'Goudy Old Style'; font-size: 20px">SimpliWave</p>
+    <p class="text">presents this</p>
+    <h1>CERTIFICATE OF<br>APPRECIATION</h1>
+    <p class="text">to</p>
+    <p>{{ student_name }}</p>
+    <p class="text">in recognition of his/her valuable contribution as a role in
+                        "{{ project }}" for the {{ client }}. He/She has exhibited his/her skills in
+                        {{ domain }} as an {{ role }}. He/She has been an asset in this project and we wish him/her
+                        good luck for his/her future.</p>
+    <div class="sign">
+        <p style="margin: 40px auto 0 0">{{ date }}</p>
+        <div style="margin-top: 20px">
+            <div>Faraz Ahmad</div>
+            <div class="divider"></div>
+            <p style="font-size: small">Faraz Ahmad<br>Founder/ Managing Director</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

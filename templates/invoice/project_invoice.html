@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice</title>
+    <style type="text/css">
+        .invoice {
+            margin: 0;
+            padding: 30px 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .simpliwave {
+            left: 10%;
+            position: relative;
+            width: 100%;
+        }
+
+        .bill {
+            margin: 0 10%;
+            width: 80%;
+            background-color: #eee;
+        }
+
+        .table {
+            background-color: #eee;
+            width: 100%;
+            text-align: center;
+        }
+
+        .table thead th {
+            height: 30px;
+            background-color: tan;
+        }
+
+        .table tbody tr td {
+            height: 25px;
+            background-color: white;
+        }
+
+        .total {
+            margin-top: 10px;
+            margin-left: 80%;
+            position: relative;
+        }
+
+        .payment {
+            margin: 50px 10%;
+            width: 80%;
+            padding-bottom: 100px;
+        }
+
+        .signature {
+            margin: 50px 10%;
+            width: 80%;
+        }
+
+        .sign td {
+            width: 30%;
+            padding: 0 10px 0 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="invoice" style="display: flex">
+    <div class="simpliwave">
+        <h4>SimpliWave</h4>
+        <p>738 Diamond Harbour Road</p>
+        <p>Kolkata- 700008</p><br><br>
+        <h1>Invoice</h1>
+        <p>Invoice Id #{{ invoice_id }}</p><br>
+        <table>
+            <tr>
+                <td style="width: 600px">
+                    <strong>Prepared for</strong>
+                    <h4>{{ client }}</h4>
+                </td>
+                <td>
+                    <p style="font-weight: bold; font-size: large;">Date</p>
+                    <p>{{ long_date }}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="bill">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ITEM</th>
+            <th>QTY</th>
+            <th>PRICE</th>
+            <th>TOTAL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ domain }} ({{ package }})</td>
+            <td>1</td>
+            <td>Rs. {{ amount }}</td>
+            <td>Rs. {{ amount }}</td>
+        </tr>
+        <tr>
+            <td>CGST</td>
+            <td>{{ cgst }}%</td>
+            <td>Rs. {{ cgst_amount }}</td>
+            <td>Rs. {{ cgst_amount }}</td>
+        </tr>
+        <tr>
+            <td>SGST</td>
+            <td>{{ sgst }}%</td>
+            <td>Rs. {{ sgst_amount }}</td>
+            <td>Rs. {{ sgst_amount }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="total">
+        <div style="font-size: x-large; font-weight: bold">Rs. {{ total_price }}</div>
+        <div style="color: #767676">(GST NO-19ADFPD8308J1ZG)</div>
+    </div>
+</div>
+<div class="payment">
+    <h3>THIS INVOICE IS SUBJECT TO THE FOLLOWING:</h3>
+    <div style="color: #3c3c3c">
+        <p>1. Delivery of the product has been made and available to the client {{ client }}</p>
+        <p>2. The date of delivery is {{ long_date }}</p>
+        <p>3. The payment for the service is required to be made to the following account:</p>
+        <p style="margin-left: 10%">Account no. - 0885050010496<br>
+            IFSC code - UTBI0CRTA22<br>
+            Bank - United Bank of India<br>
+            Branch - Chowrasta (Behala), 738, Diamond Harbour Road, Kolkata - 700008</p>
+    </div>
+</div>
+<div style="margin: 0 10% 0 10%; width: 80%; height: 1px; background-color: black"></div>
+<div class="signature">
+    <h3>Subject to terms and conditions:</h3>
+    <div class="sign">
+        <table style="width: 100%">
+            <tr>
+                <td>
+                    <div style="color: #3c3c3c">
+                        Bianca Riat
+                        <div style="background-color: #3c3c3c; height: 1px"></div>
+                        <strong>NAME</strong>
+                    </div>
+                </td>
+                <td>
+                    <div style="color: #3c3c3c">
+                        Chief Operating Officer
+                        <div style="background-color: #3c3c3c; height: 1px"></div>
+                        <strong>TITLE</strong>
+                    </div>
+                </td>
+                <td>
+                    <div style="color: #3c3c3c">
+                        {{ short_date }}
+                        <div style="background-color: #3c3c3c; height: 1px"></div>
+                        <strong>DATE</strong>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>
